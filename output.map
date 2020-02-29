@@ -1,0 +1,465 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+                              C:\Users\pali1\AppData\Local\Temp\ccroxolr.o (__aeabi_uidiv)
+c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+                              C:\Users\pali1\AppData\Local\Temp\ccroxolr.o (__aeabi_idiv)
+c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+                              c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libg.a(lib_a-memcpy-stub.o)
+                              C:\Users\pali1\AppData\Local\Temp\ccg0567w.o (memcpy)
+
+Allocating common symbols
+Common symbol       size              file
+
+i                   0x4               C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+
+Discarded input sections
+
+ .comment       0x00000000       0x76 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .comment       0x00000000       0x76 C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+ .comment       0x00000000       0x76 C:\Users\pali1\AppData\Local\Temp\ccmoTj10.o
+ .comment       0x00000000       0x76 C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .comment       0x00000000       0x76 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .comment       0x00000000       0x76 C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x10001000         0x00010000         xr
+SRAM             0x20000000         0x00004000         !xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+LOAD C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+LOAD C:\Users\pali1\AppData\Local\Temp\ccmoTj10.o
+LOAD C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+LOAD C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+LOAD C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+LOAD C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+START GROUP
+LOAD c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a
+LOAD c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libg.a
+LOAD c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
+END GROUP
+                0x00000400                stack_size = DEFINED (stack_size)?stack_size:0x400
+                0x00000004                no_init_size = 0x4
+
+.text           0x10001000      0x958
+                0x10001000                sText = .
+ *(.reset)
+ .reset         0x10001000       0x8e C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+                0x10001000                __Vectors
+                0x1000101c                Reset_Handler
+                0x1000108c                IRQ0_Handler
+                0x1000108c                IRQ5_Handler
+                0x1000108c                PendSV_Handler
+                0x1000108c                IRQ16_Handler
+                0x1000108c                IRQ4_Handler
+                0x1000108c                HardFault_Handler
+                0x1000108c                IRQ23_Handler
+                0x1000108c                IRQ22_Handler
+                0x1000108c                IRQ29_Handler
+                0x1000108c                IRQ20_Handler
+                0x1000108c                IRQ13_Handler
+                0x1000108c                IRQ25_Handler
+                0x1000108c                IRQ30_Handler
+                0x1000108c                IRQ21_Handler
+                0x1000108c                IRQ31_Handler
+                0x1000108c                IRQ28_Handler
+                0x1000108c                IRQ2_Handler
+                0x1000108c                IRQ24_Handler
+                0x1000108c                SVC_Handler
+                0x1000108c                IRQ1_Handler
+                0x1000108c                IRQ19_Handler
+                0x1000108c                IRQ6_Handler
+                0x1000108c                IRQ15_Handler
+                0x1000108c                IRQ18_Handler
+                0x1000108c                IRQ14_Handler
+                0x1000108c                IRQ7_Handler
+                0x1000108c                IRQ12_Handler
+                0x1000108c                IRQ8_Handler
+                0x1000108c                IRQ3_Handler
+                0x1000108c                IRQ27_Handler
+                0x1000108c                IRQ26_Handler
+                0x1000108c                IRQ17_Handler
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x1000108e        0x0 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ *fill*         0x1000108e        0x2 
+ .text.startup  0x10001090       0xbc C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+                0x10001090                main
+ .text          0x1000114c       0x6c C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+                0x1000114c                SystemCoreClockUpdate
+                0x100011b0                OSCHP_GetFrequency
+ .text          0x100011b8        0x0 C:\Users\pali1\AppData\Local\Temp\ccmoTj10.o
+ .text          0x100011b8       0x54 C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+                0x100011b8                NVIC_SetPriority
+ .text          0x1000120c       0x8c C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+                0x1000120c                SysTick_Handler
+                0x1000126c                SysTick_Config
+ .text          0x10001298      0x2cc C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+                0x10001298                UART_Init
+                0x10001434                sendChar
+                0x10001444                IRQ9_Handler
+                0x100014a4                IRQ10_Handler
+                0x10001504                IRQ11_Handler
+ .text          0x10001564        0x0 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+ .text          0x10001564      0x114 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+                0x10001564                __aeabi_uidiv
+                0x10001564                __udivsi3
+                0x10001670                __aeabi_uidivmod
+ .text          0x10001678      0x1d4 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+                0x10001678                __divsi3
+                0x10001678                __aeabi_idiv
+                0x10001844                __aeabi_idivmod
+ .text          0x1000184c        0x4 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x1000184c                __aeabi_idiv0
+                0x1000184c                __aeabi_ldiv0
+ .text          0x10001850        0x0 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libg.a(lib_a-memcpy-stub.o)
+ .text.memcpy   0x10001850       0xa4 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libg.a(lib_a-memcpy-stub.o)
+                0x10001850                memcpy
+ *(.init)
+ *(.fini)
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+ *(.rodata .rodata.*)
+ .rodata        0x100018f4       0x14 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .rodata        0x10001908       0x14 C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+ .rodata.str1.1
+                0x1000191c       0x3c C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+ *(.gnu.linkonce.r*)
+ *(vtable)
+                0x10001958                . = ALIGN (0x4)
+
+.glue_7         0x10001958        0x0
+ .glue_7        0x10001958        0x0 linker stubs
+
+.glue_7t        0x10001958        0x0
+ .glue_7t       0x10001958        0x0 linker stubs
+
+.vfp11_veneer   0x10001958        0x0
+ .vfp11_veneer  0x10001958        0x0 linker stubs
+
+.v4_bx          0x10001958        0x0
+ .v4_bx         0x10001958        0x0 linker stubs
+
+.iplt           0x10001958        0x0
+ .iplt          0x10001958        0x0 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame
+ *(.eh_frame)
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x10001958                . = ALIGN (0x4)
+                0x10001958                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x10001958                __exidx_end = .
+                0x10001958                . = ALIGN (0x4)
+
+.VENEER_Code    0x2000000c      0x144 load address 0x10001958
+                0x2000000c                . = ALIGN (0x4)
+                0x2000000c                VeneerStart = .
+ *(.XmcVeneerCode)
+ .XmcVeneerCode
+                0x2000000c      0x144 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+                0x2000000c                HardFault_Veener
+                0x2000002c                SVC_Veener
+                0x20000038                PendSV_Veener
+                0x2000003c                SysTick_Veener
+                0x20000040                IRQ0_Veener
+                0x20000044                IRQ1_Veener
+                0x20000048                IRQ2_Veener
+                0x2000004c                IRQ3_Veener
+                0x20000050                IRQ4_Veener
+                0x20000054                IRQ5_Veener
+                0x20000058                IRQ6_Veener
+                0x2000005c                IRQ7_Veener
+                0x20000060                IRQ8_Veener
+                0x20000064                IRQ9_Veener
+                0x20000068                IRQ10_Veener
+                0x2000006c                IRQ11_Veener
+                0x20000070                IRQ12_Veener
+                0x20000074                IRQ13_Veener
+                0x20000078                IRQ14_Veener
+                0x2000007c                IRQ15_Veener
+                0x20000080                IRQ16_Veener
+                0x20000084                IRQ17_Veener
+                0x20000088                IRQ18_Veener
+                0x2000008c                IRQ19_Veener
+                0x20000090                IRQ20_Veener
+                0x20000094                IRQ21_Veener
+                0x20000098                IRQ22_Veener
+                0x2000009c                IRQ23_Veener
+                0x200000a0                IRQ24_Veener
+                0x200000a4                IRQ25_Veener
+                0x200000a8                IRQ26_Veener
+                0x200000ac                IRQ27_Veener
+                0x200000b0                IRQ28_Veener
+                0x200000b4                IRQ29_Veener
+                0x200000b8                IRQ30_Veener
+                0x200000bc                IRQ31_Veener
+                0x20000150                . = ALIGN (0x4)
+                0x20000150                VeneerEnd = .
+                0x10001958                eROData = LOADADDR (.VENEER_Code)
+                0x00000144                VeneerSize = (ABSOLUTE (VeneerEnd) - ABSOLUTE (VeneerStart))
+
+.rel.dyn        0x20000150        0x0 load address 0x10001a9c
+ .rel.iplt      0x20000150        0x0 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+
+Stack           0x20000150      0x400 load address 0x00000000
+                0x20000150                . = ALIGN (0x8)
+                0x20000550                . = (. + stack_size)
+ *fill*         0x20000150      0x400 
+                0x20000550                __initial_sp = .
+
+.data           0x20000550        0x0 load address 0x10001a9c
+                0x20000550                . = ALIGN (0x4)
+                0x20000550                __data_start = .
+ *(.data)
+ .data          0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .data          0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+ .data          0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccmoTj10.o
+ .data          0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .data          0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .data          0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+ .data          0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+ .data          0x20000550        0x0 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .data          0x20000550        0x0 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .data          0x20000550        0x0 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .data          0x20000550        0x0 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libg.a(lib_a-memcpy-stub.o)
+ *(.data*)
+ *(*.data)
+ *(.gnu.linkonce.d*)
+                0x20000550                . = ALIGN (0x4)
+                [!provide]                PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                [!provide]                PROVIDE (__preinit_array_end = .)
+                0x20000550                . = ALIGN (0x4)
+                [!provide]                PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array)
+                [!provide]                PROVIDE (__init_array_end = .)
+                0x20000550                . = ALIGN (0x4)
+                [!provide]                PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array)
+                [!provide]                PROVIDE (__fini_array_end = .)
+                0x20000550                . = ALIGN (0x4)
+                0x20000550                __data_end = .
+                0x10001a9c                DataLoadAddr = LOADADDR (.data)
+                0x00000000                __data_size = (__data_end - __data_start)
+
+.igot.plt       0x20000550        0x0 load address 0x10001a9c
+ .igot.plt      0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+
+.ram_code       0x20000550        0x0 load address 0x10001a9c
+                0x20000550                . = ALIGN (0x4)
+                0x20000550                __ram_code_start = .
+ *(.ram_code)
+                0x20000550                . = ALIGN (0x4)
+                0x20000550                __ram_code_end = .
+                0x10001a9c                __ram_code_load = LOADADDR (.ram_code)
+                0x00000000                __ram_code_size = (__ram_code_end - __ram_code_start)
+                0x00000a9c                __text_size = ((((__exidx_end - sText) + VeneerSize) + __data_size) + __ram_code_size)
+                0x10001a9c                eText = (sText + __text_size)
+
+.bss            0x20000550        0x8 load address 0x10001a9c
+                0x20000550                . = ALIGN (0x4)
+                0x20000550                __bss_start = .
+ *(.bss)
+ .bss           0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .bss           0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+ .bss           0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccmoTj10.o
+ .bss           0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .bss           0x20000550        0x0 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .bss           0x20000550        0x4 C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+                0x20000550                j
+ .bss           0x20000554        0x0 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+ .bss           0x20000554        0x0 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .bss           0x20000554        0x0 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .bss           0x20000554        0x0 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .bss           0x20000554        0x0 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libg.a(lib_a-memcpy-stub.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x20000554        0x4 C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+                0x20000554                i
+ *(.gnu.linkonce.b*)
+                0x20000558                . = ALIGN (0x4)
+                0x20000558                __bss_end = .
+                0x20000558                . = ALIGN (0x8)
+                0x20000558                Heap_Bank1_Start = .
+                0x00000008                __bss_size = (__bss_end - __bss_start)
+
+.no_init        0x20003ffc        0x4 load address 0x00003eac
+                0x20003ffc                Heap_Bank1_End = .
+ *(.no_init)
+ .no_init       0x20003ffc        0x4 C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+                0x20003ffc                SystemCoreClock
+                0x00003aa4                Heap_Bank1_Size = (Heap_Bank1_End - Heap_Bank1_Start)
+                0x00000001                ASSERT ((Heap_Bank1_Start <= Heap_Bank1_End), region SRAM overflowed no_init section)
+
+/DISCARD/
+ *(.comment)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xc8
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .debug_aranges
+                0x00000020       0x20 C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+ .debug_aranges
+                0x00000040       0x20 C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .debug_aranges
+                0x00000060       0x20 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .debug_aranges
+                0x00000080       0x20 C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+ .debug_aranges
+                0x000000a0       0x28 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_info     0x00000000     0x1592
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x3e2 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .debug_info    0x000003e2      0x160 C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+ .debug_info    0x00000542      0x34e C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .debug_info    0x00000890      0x5c5 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .debug_info    0x00000e55      0x71b C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+ .debug_info    0x00001570       0x22 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+
+.debug_abbrev   0x00000000      0x693
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x12e C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .debug_abbrev  0x0000012e       0xd9 C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+ .debug_abbrev  0x00000207      0x11d C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .debug_abbrev  0x00000324      0x1e4 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .debug_abbrev  0x00000508      0x179 C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+ .debug_abbrev  0x00000681       0x12 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+
+.debug_line     0x00000000      0x7b3
+ *(.debug_line)
+ .debug_line    0x00000000       0xf3 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .debug_line    0x000000f3      0x100 C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+ .debug_line    0x000001f3        0x0 C:\Users\pali1\AppData\Local\Temp\ccmoTj10.o
+ .debug_line    0x000001f3       0xaa C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .debug_line    0x0000029d       0xf9 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .debug_line    0x00000396      0x34a C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+ .debug_line    0x000006e0       0xd3 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+
+.debug_frame    0x00000000      0x1e8
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x28 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .debug_frame   0x00000028       0x3c C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+ .debug_frame   0x00000064       0x2c C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .debug_frame   0x00000090       0x44 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .debug_frame   0x000000d4       0xa0 C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+ .debug_frame   0x00000174       0x20 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000194       0x20 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .debug_frame   0x000001b4       0x34 c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libg.a(lib_a-memcpy-stub.o)
+
+.debug_str      0x00000000      0x691
+ *(.debug_str)
+ .debug_str     0x00000000      0x268 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+                                0x286 (size before relaxing)
+ .debug_str     0x00000268       0x3d C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+                                0x1f3 (size before relaxing)
+ .debug_str     0x000002a5        0xf C:\Users\pali1\AppData\Local\Temp\ccmoTj10.o
+                                 0xf7 (size before relaxing)
+ .debug_str     0x000002b4      0x206 C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+                                0x3b9 (size before relaxing)
+ .debug_str     0x000004ba      0x175 C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+                                0x4c1 (size before relaxing)
+ .debug_str     0x0000062f       0x41 C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+                                0x3b0 (size before relaxing)
+ .debug_str     0x00000670       0x21 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+                                 0x79 (size before relaxing)
+
+.debug_loc      0x00000000      0x11f
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x74 C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .debug_loc     0x00000074       0xab C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_ranges   0x00000000       0x30
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x10 C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .debug_ranges  0x00000010       0x20 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.build_attributes
+                0x00000000      0x1b4
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x2c C:\Users\pali1\AppData\Local\Temp\cc6eXkPU.o
+ .ARM.attributes
+                0x0000002c       0x2c C:\Users\pali1\AppData\Local\Temp\ccroxolr.o
+ .ARM.attributes
+                0x00000058       0x31 C:\Users\pali1\AppData\Local\Temp\ccmoTj10.o
+ .ARM.attributes
+                0x00000089       0x2c C:\Users\pali1\AppData\Local\Temp\ccRaDvLH.o
+ .ARM.attributes
+                0x000000b5       0x2c C:\Users\pali1\AppData\Local\Temp\ccg0567w.o
+ .ARM.attributes
+                0x000000e1       0x2c C:\Users\pali1\AppData\Local\Temp\ccl1LJqs.o
+ .ARM.attributes
+                0x0000010d       0x21 C:\Users\pali1\AppData\Local\Temp\ccsRhGgt.o
+ .ARM.attributes
+                0x0000012e       0x1e c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000014c       0x1e c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x0000016a       0x1e c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000188       0x2c c:/gnu_tools_arm_embedded/q4_major_8_2018/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libg.a(lib_a-memcpy-stub.o)
+OUTPUT(main.elf elf32-littlearm)

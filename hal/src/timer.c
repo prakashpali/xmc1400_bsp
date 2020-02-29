@@ -1,6 +1,6 @@
 
-#include "xmc1400.h"
-#include "gpio.h"
+#include "..\include\xmc1400.h"
+#include "..\include\gpio.h"
 
 uint32_t SysTick_Config(uint32_t ticks);
 extern void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority);

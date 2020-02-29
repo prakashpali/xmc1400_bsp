@@ -7,7 +7,12 @@
 	"settings": {
 		"files.associations": {
 			"main.h": "c",
-			"xmc1400.h": "c"
+			"xmc1400.h": "c",
+			"clock.h": "c",
+			"gpio.h": "c",
+			"uart.h": "c"
 		}
 	}
+	
+	
 }
