@@ -1,5 +1,6 @@
 
 #include "xmc1400.h"
+
 void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority);
 
 
