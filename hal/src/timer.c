@@ -5,20 +5,6 @@
 uint32_t SysTick_Config(uint32_t ticks);
 extern void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority);
 
-void SysTick_Handler(void)
-{
-    volatile uint8_t init_message[20] = {"Timer Interrupt\r\n"};
-    uint32_t i, j;
-   
-    for(i = 0; i < 18; i++) 
-    {
-        USIC0_CH1->IN[i] = init_message[i];
-        for(j = 0; j < 1000; j++);
-    }
-    
-    for(i = 0; i < 4; i++)
-        Pin_toggle(4, i);       // Toggle LEDs - pins 4.0, 4.1, 4.2, 4.3
-}
 
 uint32_t SysTick_Config(uint32_t ticks)
 {

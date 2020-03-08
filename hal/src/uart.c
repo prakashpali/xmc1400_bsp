@@ -3,7 +3,14 @@
 
 volatile uint32_t i;
 volatile uint32_t j = 0;
-    
+
+#define putc(c)     USIC0_CH1->IN[0] = c
+
+inline void putChar(uint8_t c)
+{
+    USIC0_CH1->IN[0] = c;
+}
+
 void UART_Init(void)
 {
     volatile uint8_t init_message[20] = {"UART Initialized\r\n"};
@@ -108,10 +115,54 @@ void UART_Init(void)
 }
 
 void sendChar(uint8_t c) {
+    uint32_t i;
   
   USIC0_CH1->IN[0] = c;
+  for(i =0; i < 10000; i ++);
   
   return;
+}
+
+volatile uint8_t print(const uint8_t *format, ...)
+{
+    //uint32_t val[20];
+    // uint8_t *traverse, count = 0;
+    //__asm("sendChar(R1+48)");
+    // __asm("MOV %0, R1\n" : "=r" (val[0]) );		//Fetch char argument
+    // __asm("MOV %0, R2\n" : "=r" (val[1]) );		//Fetch char argument
+    // __asm("MOV %0, R3\n" : "=r" (val[2]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[3]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[4]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[5]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[6]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[7]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[8]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[9]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[10]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[11]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[12]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[13]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[14]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[15]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[16]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[17]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[18]) );		//Fetch char argument
+    // __asm("POP {%0}\n" : "=r" (val[19]) );		//Fetch char argument
+
+    for(; *format != '\0'; format++)
+    {
+        while( *format != '%' ) 
+        { 
+            format++; 
+        } 
+    
+        format++;
+        
+    }
+
+
+
+    return 1;
 }
 
 void IRQ9_Handler(void)
@@ -120,8 +171,7 @@ void IRQ9_Handler(void)
    
     for(i = 0; i < 18; i++) 
     {
-        USIC0_CH1->IN[i] = init_message[i];
-        for(j = 0; j < 1000; j++);
+        sendChar(init_message[i]);
     }
 }
 
@@ -131,8 +181,7 @@ void IRQ10_Handler(void)
    
     for(i = 0; i < 18; i++) 
     {
-        USIC0_CH1->IN[i] = init_message[i];
-        for(j = 0; j < 1000; j++);
+        sendChar(init_message[i]);
     }
 }
 
@@ -142,7 +191,6 @@ void IRQ11_Handler(void)
    
     for(i = 0; i < 18; i++) 
     {
-        USIC0_CH1->IN[i] = init_message[i];
-        for(j = 0; j < 1000; j++);
+       sendChar(init_message[i]);
     }
 }

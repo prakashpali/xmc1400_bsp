@@ -3,3 +3,4 @@
 #include "hal\include\xmc1400.h"
 #include "hal\include\uart.h"
 #include "hal\include\clock.h"
+#include "hal\include\dts.h"

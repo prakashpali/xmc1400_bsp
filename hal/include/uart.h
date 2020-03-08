@@ -52,6 +52,7 @@ Steps:
 
 void UART_Init();
 void sendChar(uint8_t c);
+volatile uint8_t print(const uint8_t *format, ...);
 
 
 #endif

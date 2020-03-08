@@ -14,6 +14,7 @@
 #define SYSTICK_BASE        (SCS_REG_BASE +  0x0010UL)                    /*!< SysTick Base Address */
 #define NVIC_BASE           (SCS_REG_BASE +  0x0100UL)                    /*!< NVIC Base Address */
 #define SCB_BASE            (SCS_REG_BASE +  0x0D00UL)                    /*!< System Control Block Base Address */
+#define DTS_REG_BASE        (SCU_GENERAL_BASE +  0x1000UL)
 
 #define INPUT           0x00U
 #define INPUT_PD        0x08U
@@ -1170,7 +1171,11 @@ typedef struct {                                    /*!< (@ 0x40010000) SCU_GENE
   __RW uint32_t  PASSWD;                            /*!< (@ 0x40010024) Password Register                                      */
   __R  uint32_t  RESERVED2[2];
   __RW uint32_t  CCUCON;                            /*!< (@ 0x40010030) CCU Control Register                                   */
-  __R  uint32_t  RESERVED3[5];
+  __R  uint32_t  RESERVED3[2];
+  __R  uint32_t  SRRAW;                             /*!< (@ 0x40010038) RAW Service Request Status                             */
+  __R  uint32_t  SRMSK;                             /*!< (@ 0x4001003C) Service Request Mask                                   */
+  __R  uint32_t  SRCLR;                             /*!< (@ 0x40010040) Service Request Clear                                   */
+  __R  uint32_t  SRSET;                             /*!< (@ 0x40010044) Service Request Set                                   */
   __R  uint32_t  MIRRSTS;                           /*!< (@ 0x40010048) Mirror Update Status Register                          */
   __R  uint32_t  RESERVED4[2];
   __RW uint32_t  PMTSR;                             /*!< (@ 0x40010054) Parity Memory Test Select Register                     */
@@ -1266,6 +1271,19 @@ typedef enum {
   
 } IRQn_Type;
 
+
+typedef struct
+{
+   __R  uint8_t RESERVED_1[24];          /*!< Offset: 0x1000 (R) Reserved */
+   __RW uint16_t ANATSECTRL;             /*!< Offset: 0x1024 (R/W) Temperature Sensor Control Register */
+   __R  uint8_t RESERVED_2[4];           /*!< Offset: 0x1026 (R) Reserved */
+   __RW uint16_t ANATSEIH;               /*!< Offset: 0x1030 (R/W) Temperature Sensor High Temperature Interrupt Register */
+   __R  uint8_t RESERVED_3[2];           /*!< Offset: 0x1032 (R) Reserved */
+   __RW uint16_t ANATSEIL;               /*!< Offset: 0x1034 (R/W)  Temperature Sensor Low Temperature Interrupt Register */
+   __R  uint8_t RESERVED_4[4];           /*!< Offset: 0x1036 (R) Reserved */
+   __R  uint16_t ANATSEMON;              /*!< Offset: 0x1040 (R/ )  Temperature Sensor Counter2 Monitor Register */
+} SCU_DTS_t;
+
 /* Interrupt Priorities are WORD accessible only under ARMv6M                   */
 /* The following MACROS handle generation of the register offset and byte masks */
 #define _BIT_SHIFT(IRQn)         (  ((((uint32_t)(int32_t)(IRQn))         )      &  0x03UL) * 8UL)
@@ -1284,5 +1302,7 @@ typedef enum {
 #define NVIC_REG                        ((NVIC_REG_t *) NVIC_BASE)
 #define SYSTICK                         ((SysTick_Type *) SYSTICK_BASE)
 #define SCB                             ((SCB_Type *) SCB_BASE)
+
+#define SCU_DTS                         ((SCU_DTS_t *) DTS_REG_BASE)
 
 #endif

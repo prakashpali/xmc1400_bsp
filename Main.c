@@ -18,10 +18,13 @@ int main(void)
     
     SystemCoreClockUpdate();
     
-    UART_Init();
-    
     SysTick_Config(8000000);
     
+    UART_Init();
+    dtsInit();
+    // print("I is %d %d %d %d %d %d %d %x %c %s", i, i, i, i, i, i, i, i, 'c', "string");
+    // print("J is %d", j);
+
     // Enable interrupt for UART (USIC0_CH1) IRQ9_Handler as Rx, IRQ10_Handler as Tx & IRQ11_Handler as Pr
     SCU_GENERAL->INTCR0 &= 0xFC0000;
     NVIC_REG->ISER |= 0x700;
@@ -35,4 +38,18 @@ int main(void)
 
     while(1);
     
+}
+
+void SysTick_Handler(void)
+{
+    volatile uint8_t init_message[25] = {"Timer Interrupt. Temp :\r\n"};
+    uint32_t i, j;
+   
+    for(i = 0; i < 25; i++) 
+    {
+        sendChar(init_message[i]);
+    }
+    
+    for(i = 0; i < 4; i++)
+        Pin_toggle(4, i);       // Toggle LEDs - pins 4.0, 4.1, 4.2, 4.3
 }
