@@ -20,15 +20,19 @@ int main(void)
     
     SysTick_Config(8000000);
     
-    UART_Init();
-    dtsInit();
-    // print("I is %d %d %d %d %d %d %d %x %c %s", i, i, i, i, i, i, i, i, 'c', "string");
-    // print("J is %d", j);
-
     // Enable interrupt for UART (USIC0_CH1) IRQ9_Handler as Rx, IRQ10_Handler as Tx & IRQ11_Handler as Pr
     SCU_GENERAL->INTCR0 &= 0xFC0000;
     NVIC_REG->ISER |= 0x700;
     NVIC_REG->IPR[3] |= 0x03030300;
+    
+    UART_Init();
+
+    // USIC0_CH1->INPR = 0;
+
+    dtsInit();
+    print("Test 1: %d %d %d %d %d %d %d %x %c %s\n\r", i, i, i, i, i, i, i, i, 'c', "string");
+    print("Test 2: %x %d %s %c\n\r", i, i, "string", 'c');
+    print("Test 3: %s %c %d\n\r", "string", 'c', i);
     
     // Configure GPIO as o/p with open drain
     Pin_set_mode(4, 0, OUTPUT_OD_GP);

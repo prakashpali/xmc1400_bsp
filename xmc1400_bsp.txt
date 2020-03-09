@@ -1,0 +1,220 @@
+# 1 "startup_XMC1400.S"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "startup_XMC1400.S"
+# 78 "startup_XMC1400.S"
+.macro Insert_InterruptHandler Interrupt
+    .weak \Interrupt\()_Handler
+    .thumb_set \Interrupt\()_Handler, Default_Handler
+.endm
+
+.macro Insert_InterruptVeener Interrupt
+    .globl \Interrupt\()_Veener
+\Interrupt\()_Veener:
+    LDR R0, =\Interrupt\()_Handler
+    BX R0
+.endm
+
+
+
+    .syntax unified
+    .cpu cortex-m0
+
+    .section .reset, "a", %progbits
+
+  .align 2
+
+    .globl __Vectors
+    .type __Vectors, %object
+__Vectors:
+    .long __initial_sp
+    .long Reset_Handler
+
+
+
+
+    .long 0
+    .long HardFault_Handler
+    .long 0x00041800
+    .long 0x00000100
+    .long 0x80000000
+# 159 "startup_XMC1400.S"
+    .size __Vectors, . - __Vectors
+
+
+
+
+    .thumb
+ .align 1
+
+
+    .thumb_func
+    .globl Reset_Handler
+    .type Reset_Handler, %function
+Reset_Handler:
+
+ ldr r1, =eROData
+ ldr r2, =VeneerStart
+ ldr r3, =VeneerEnd
+ bl __copy_data
+
+
+
+
+
+ ldr r1, =DataLoadAddr
+ ldr r2, =__data_start
+ ldr r3, =__data_end
+ bl __copy_data
+
+
+ ldr r1, =__ram_code_load
+ ldr r2, =__ram_code_start
+ ldr r3, =__ram_code_end
+ bl __copy_data
+# 201 "startup_XMC1400.S"
+ ldr r1, =__bss_start
+ ldr r2, =__bss_end
+
+ movs r0, 0
+
+ subs r2, r1
+ ble .L_loop3_done
+
+.L_loop3:
+ subs r2, #4
+ str r0, [r1, r2]
+ bgt .L_loop3
+.L_loop3_done:
+# 222 "startup_XMC1400.S"
+    ldr r0, =main
+    blx r0
+
+    .thumb_func
+    .type __copy_data, %function
+__copy_data:
+# 236 "startup_XMC1400.S"
+ subs r3, r2
+ ble .L_loop_done
+
+.L_loop:
+ subs r3, #4
+ ldr r0, [r1,r3]
+ str r0, [r2,r3]
+ bgt .L_loop
+
+.L_loop_done:
+ bx lr
+
+ .pool
+    .size Reset_Handler,.-Reset_Handler
+
+
+
+ .align 1
+
+    .thumb_func
+    .weak Default_handler
+    .type Default_handler, %function
+Default_Handler:
+    b .
+    .size Default_Handler, . - Default_Handler
+
+    Insert_InterruptHandler HardFault
+    Insert_InterruptHandler SVC
+    Insert_InterruptHandler PendSV
+    Insert_InterruptHandler SysTick
+
+    Insert_InterruptHandler IRQ0
+    Insert_InterruptHandler IRQ1
+    Insert_InterruptHandler IRQ2
+    Insert_InterruptHandler IRQ3
+    Insert_InterruptHandler IRQ4
+    Insert_InterruptHandler IRQ5
+    Insert_InterruptHandler IRQ6
+    Insert_InterruptHandler IRQ7
+    Insert_InterruptHandler IRQ8
+    Insert_InterruptHandler IRQ9
+    Insert_InterruptHandler IRQ10
+    Insert_InterruptHandler IRQ11
+    Insert_InterruptHandler IRQ12
+    Insert_InterruptHandler IRQ13
+    Insert_InterruptHandler IRQ14
+    Insert_InterruptHandler IRQ15
+    Insert_InterruptHandler IRQ16
+    Insert_InterruptHandler IRQ17
+    Insert_InterruptHandler IRQ18
+    Insert_InterruptHandler IRQ19
+    Insert_InterruptHandler IRQ20
+    Insert_InterruptHandler IRQ21
+    Insert_InterruptHandler IRQ22
+    Insert_InterruptHandler IRQ23
+    Insert_InterruptHandler IRQ24
+    Insert_InterruptHandler IRQ25
+    Insert_InterruptHandler IRQ26
+    Insert_InterruptHandler IRQ27
+    Insert_InterruptHandler IRQ28
+    Insert_InterruptHandler IRQ29
+    Insert_InterruptHandler IRQ30
+    Insert_InterruptHandler IRQ31
+
+
+
+
+    .section ".XmcVeneerCode","ax",%progbits
+
+    .align 1
+
+ Insert_InterruptVeener HardFault
+    .long 0
+    .long 0
+    .long 0
+    .long 0
+    .long 0
+    .long 0
+    .long 0
+ Insert_InterruptVeener SVC
+    .long 0
+    .long 0
+ Insert_InterruptVeener PendSV
+ Insert_InterruptVeener SysTick
+
+ Insert_InterruptVeener IRQ0
+ Insert_InterruptVeener IRQ1
+ Insert_InterruptVeener IRQ2
+ Insert_InterruptVeener IRQ3
+ Insert_InterruptVeener IRQ4
+ Insert_InterruptVeener IRQ5
+ Insert_InterruptVeener IRQ6
+ Insert_InterruptVeener IRQ7
+ Insert_InterruptVeener IRQ8
+ Insert_InterruptVeener IRQ9
+ Insert_InterruptVeener IRQ10
+ Insert_InterruptVeener IRQ11
+ Insert_InterruptVeener IRQ12
+ Insert_InterruptVeener IRQ13
+ Insert_InterruptVeener IRQ14
+ Insert_InterruptVeener IRQ15
+ Insert_InterruptVeener IRQ16
+ Insert_InterruptVeener IRQ17
+ Insert_InterruptVeener IRQ18
+ Insert_InterruptVeener IRQ19
+ Insert_InterruptVeener IRQ20
+ Insert_InterruptVeener IRQ21
+ Insert_InterruptVeener IRQ22
+ Insert_InterruptVeener IRQ23
+ Insert_InterruptVeener IRQ24
+ Insert_InterruptVeener IRQ25
+ Insert_InterruptVeener IRQ26
+ Insert_InterruptVeener IRQ27
+ Insert_InterruptVeener IRQ28
+ Insert_InterruptVeener IRQ29
+ Insert_InterruptVeener IRQ30
+ Insert_InterruptVeener IRQ31
+
+
+
+
+
+
+    .end

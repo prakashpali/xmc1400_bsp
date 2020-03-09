@@ -1,15 +1,12 @@
 
 #include "..\include\uart.h"
+#include "..\include\gpio.h"
+
 
 volatile uint32_t i;
 volatile uint32_t j = 0;
 
 #define putc(c)     USIC0_CH1->IN[0] = c
-
-inline void putChar(uint8_t c)
-{
-    USIC0_CH1->IN[0] = c;
-}
 
 void UART_Init(void)
 {
@@ -123,9 +120,54 @@ void sendChar(uint8_t c) {
   return;
 }
 
-volatile uint8_t print(const uint8_t *format, ...)
+
+volatile uint8_t print(uint8_t *format, ...)
 {
-    //uint32_t val[20];
+
+    uint8_t **val = (uint32_t **) &format + 1;
+    
+    while(*format != '\0')
+    {
+        if (*format == '%')
+            {
+                // putc(*format);
+                ++format;
+                switch(*format)
+                {
+                    case 'd':
+                        putc((*val)+48);
+                        val++;
+                        break;
+                    case 'c':
+                        putc(*val);
+                        val++;
+                        break;
+                    case 'x':
+                        putc('0');
+                        putc('x');
+                        putc((*val)+48);
+                        val++;
+                        break;
+                    case 's':
+                        while(**val != '\0')
+                            {
+                                putc(**val);
+                                (*val)++;
+                            }
+                        break;
+                }
+                
+                ++format;
+            }
+        else
+        {
+            putc(*format);
+            ++format;
+        }
+        
+    }
+
+
     // uint8_t *traverse, count = 0;
     //__asm("sendChar(R1+48)");
     // __asm("MOV %0, R1\n" : "=r" (val[0]) );		//Fetch char argument
@@ -149,48 +191,22 @@ volatile uint8_t print(const uint8_t *format, ...)
     // __asm("POP {%0}\n" : "=r" (val[18]) );		//Fetch char argument
     // __asm("POP {%0}\n" : "=r" (val[19]) );		//Fetch char argument
 
-    for(; *format != '\0'; format++)
-    {
-        while( *format != '%' ) 
-        { 
-            format++; 
-        } 
-    
-        format++;
-        
-    }
-
-
-
     return 1;
 }
 
+
 void IRQ9_Handler(void)
 {
-   volatile uint8_t init_message[20] = {"UART Rx Interrupt\r\n"};
-   
-    for(i = 0; i < 18; i++) 
-    {
-        sendChar(init_message[i]);
-    }
+    USIC0_CH1->IN[0] = USIC0_CH1->RBUF;
+    USIC0_CH1->PSCR = 1 << 10 | 1 << 14;
 }
 
 void IRQ10_Handler(void)
 {
-    volatile uint8_t init_message[20] = {"UART Tx Interrupt\r\n"};
-   
-    for(i = 0; i < 18; i++) 
-    {
-        sendChar(init_message[i]);
-    }
+    Pin_toggle(4, 0);
 }
 
 void IRQ11_Handler(void)
 {
-    volatile uint8_t init_message[20] = {"UART Pr Interrupt\r\n"};
-   
-    for(i = 0; i < 18; i++) 
-    {
-       sendChar(init_message[i]);
-    }
+    Pin_toggle(4, 1);
 }
