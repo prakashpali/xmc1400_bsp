@@ -124,7 +124,8 @@ void sendChar(uint8_t c) {
 volatile uint8_t print(uint8_t *format, ...)
 {
 
-    uint8_t **val = (uint32_t **) &format + 1;
+    volatile uint8_t *val = (uint32_t *) &format + 1;
+    volatile uint8_t **str = '\0';
     
     while(*format != '\0')
     {
@@ -136,24 +137,27 @@ volatile uint8_t print(uint8_t *format, ...)
                 {
                     case 'd':
                         putc((*val)+48);
-                        val++;
+                        val = val + 4;
                         break;
                     case 'c':
                         putc(*val);
-                        val++;
+                        val = val + 4;
                         break;
                     case 'x':
                         putc('0');
                         putc('x');
                         putc((*val)+48);
-                        val++;
+                        val = val + 4;
                         break;
                     case 's':
-                        while(**val != '\0')
-                            {
-                                putc(**val);
-                                (*val)++;
-                            }
+                        str = val;
+                        val = val + 4;
+                        while (**str != '\0')
+                        {
+                            putc(**str);
+                            *str = *str + 1;
+                        }
+                        
                         break;
                 }
                 

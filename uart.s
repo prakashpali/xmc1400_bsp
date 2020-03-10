@@ -247,71 +247,82 @@ print:
 	@ frame_needed = 0, uses_anonymous_args = 1
 	push	{r0, r1, r2, r3}
 	movs	r1, #192
-	push	{r4, r5, r6, lr}
-	movs	r5, #48
-	ldr	r2, .L26
-	add	r3, sp, #20
+	push	{r4, r5, lr}
+	ldr	r2, .L25
+	add	r3, sp, #16
 	lsls	r1, r1, #1
 .L12:
-	ldr	r4, [sp, #16]
+	ldr	r4, [sp, #12]
 	ldrb	r0, [r4]
 	cmp	r0, #0
-	bne	.L22
+	bne	.L23
 	adds	r0, r0, #1
 	@ sp needed
-	pop	{r4, r5, r6}
+	pop	{r4, r5}
 	pop	{r3}
 	add	sp, sp, #16
 	bx	r3
-.L22:
-	adds	r6, r4, #1
+.L23:
+	adds	r5, r4, #1
 	cmp	r0, #37
 	bne	.L13
 	ldrb	r0, [r4, #1]
-	str	r6, [sp, #16]
+	str	r5, [sp, #12]
 	cmp	r0, #100
-	beq	.L25
+	beq	.L14
 	bhi	.L15
 	cmp	r0, #99
 	beq	.L16
 .L17:
-	ldr	r0, [sp, #16]
+	ldr	r0, [sp, #12]
 	adds	r0, r0, #1
-	str	r0, [sp, #16]
+	str	r0, [sp, #12]
 	b	.L12
 .L15:
 	cmp	r0, #115
 	beq	.L18
 	cmp	r0, #120
 	bne	.L17
-	str	r5, [r2, r1]
+	movs	r4, #48
+	str	r4, [r2, r1]
 	str	r0, [r2, r1]
-.L25:
-	ldmia	r3!, {r0}
-	adds	r0, r0, #48
+	ldrb	r0, [r3]
+	adds	r0, r0, r4
 	b	.L24
-.L16:
-	ldmia	r3!, {r0}
+.L14:
+	ldrb	r0, [r3]
+	adds	r0, r0, #48
 .L24:
 	str	r0, [r2, r1]
+	adds	r3, r3, #4
 	b	.L17
-.L20:
-	adds	r0, r0, #1
-	str	r4, [r2, r1]
-	str	r0, [r3]
+.L16:
+	ldrb	r0, [r3]
+	uxtb	r0, r0
+	b	.L24
 .L18:
+	adds	r5, r3, #4
+.L20:
 	ldr	r0, [r3]
 	ldrb	r4, [r0]
 	cmp	r4, #0
-	bne	.L20
+	bne	.L21
+	movs	r3, r5
 	b	.L17
+.L21:
+	ldrb	r4, [r0]
+	adds	r0, r0, #1
+	uxtb	r4, r4
+	str	r4, [r2, r1]
+	str	r0, [r3]
+	b	.L20
 .L13:
 	str	r0, [r2, r1]
-	str	r6, [sp, #16]
+	str	r5, [sp, #12]
 	b	.L12
-.L27:
-	.align	2
 .L26:
+	.align	2
+.L25:
 	.word	1207960064
 	.size	print, .-print
 	.align	1
@@ -326,7 +337,7 @@ IRQ9_Handler:
 	@ frame_needed = 0, uses_anonymous_args = 0
 	@ link register save eliminated.
 	movs	r2, #192
-	ldr	r3, .L29
+	ldr	r3, .L28
 	lsls	r2, r2, #1
 	ldr	r1, [r3, #84]
 	@ sp needed
@@ -335,9 +346,9 @@ IRQ9_Handler:
 	lsls	r2, r2, #7
 	str	r2, [r3, #76]
 	bx	lr
-.L30:
-	.align	2
 .L29:
+	.align	2
+.L28:
 	.word	1207960064
 	.size	IRQ9_Handler, .-IRQ9_Handler
 	.align	1
@@ -352,15 +363,15 @@ IRQ10_Handler:
 	@ frame_needed = 0, uses_anonymous_args = 0
 	@ link register save eliminated.
 	movs	r3, #1
-	ldr	r2, .L32
+	ldr	r2, .L31
 	@ sp needed
 	ldr	r1, [r2]
 	eors	r3, r1
 	str	r3, [r2]
 	bx	lr
-.L33:
-	.align	2
 .L32:
+	.align	2
+.L31:
 	.word	1074004992
 	.size	IRQ10_Handler, .-IRQ10_Handler
 	.align	1
@@ -375,15 +386,15 @@ IRQ11_Handler:
 	@ frame_needed = 0, uses_anonymous_args = 0
 	@ link register save eliminated.
 	movs	r3, #2
-	ldr	r2, .L35
+	ldr	r2, .L34
 	@ sp needed
 	ldr	r1, [r2]
 	eors	r3, r1
 	str	r3, [r2]
 	bx	lr
-.L36:
-	.align	2
 .L35:
+	.align	2
+.L34:
 	.word	1074004992
 	.size	IRQ11_Handler, .-IRQ11_Handler
 	.global	j
